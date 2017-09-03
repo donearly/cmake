@@ -1,0 +1,6 @@
+add_executable(testlib main.c)
+add_library(hello SHARED IMPORTED)
+set_target_properties(hello PROPERTIES IMPORTED_LOCATION  
+                    ${CMAKE_CURRENT_SOURCE_DIR}/../lib/libhello.so)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../inc)
+target_link_libraries(testlib hello)
